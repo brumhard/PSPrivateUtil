@@ -11,4 +11,8 @@ function New-StdModule {
 
     Invoke-Plaster -TemplatePath $defaultTemplate.TemplatePath -DestinationPath "$plasterDest\$Name"  -Verbose
 
+    Push-Location $path\$Name
+    git init
+
+    ".vscode/*" | Out-File ".gitignore" -Force
 }
